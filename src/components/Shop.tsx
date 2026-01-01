@@ -5,6 +5,7 @@ import { useRef } from 'react';
 
 export default function Shop() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const sortedProducts = [...products].sort((a, b) => b.id - a.id);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start'],
@@ -69,7 +70,7 @@ export default function Shop() {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-10 lg:gap-12">
-          {products.map((product, index) => (
+          {sortedProducts.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0 }}
