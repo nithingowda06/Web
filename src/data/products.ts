@@ -8,7 +8,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 1,
-    image: '/tap.jpg',
+    image: '/assets/images/products/tap.jpg',
     title: 'Kitchen Tap Spray Extender',
     amazonLink: 'https://amzn.in/d/7dIj95p',
   }

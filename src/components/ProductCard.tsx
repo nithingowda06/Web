@@ -55,6 +55,7 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
       style={{
         transformStyle: 'preserve-3d',
         perspective: '1000px',
+        height: '400px',  // Fixed height for consistency
       }}
     >
       <motion.div
@@ -62,11 +63,12 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d',
+          height: '100%',  // Take full height of parent
         }}
-        whileHover={{ scale: 1.05, z: 50 }}
+        whileHover={{ scale: 1.02, z: 50 }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="relative"
+        className="h-full flex flex-col"  // Make container a flex column
       >
         <motion.div
           animate={{
@@ -75,23 +77,41 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
               : '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
           }}
           transition={{ duration: 0.3 }}
-          className="relative bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-lg rounded-3xl overflow-hidden border border-white/10"
+          className="relative bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-lg rounded-3xl overflow-hidden border border-white/10 flex-1 flex flex-col"  // Add flex-1 and flex-col
           style={{
             transform: 'translateZ(20px)',
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          <div className="aspect-square p-8 flex items-center justify-center">
+          {/* Image container with flex-1 to take available space */}
+          <div className="flex-1 flex items-center justify-center p-6">
             <motion.img
               src={image}
               alt={title}
-              className="w-full h-full object-contain"
+              className="object-contain"
               style={{
                 transform: 'translateZ(40px)',
+                maxHeight: '220px',
+                maxWidth: '220px',
+                width: 'auto',
+                height: 'auto'
               }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
+            />
+          </div>
+
+          {/* Title section at the bottom */}
+          <div className="p-6 pt-0 text-center">
+            <h3 className="text-lg font-semibold text-white group-hover:text-gray-200 transition-colors duration-300">
+              {title}
+            </h3>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: isHovered ? '60%' : 0 }}
+              transition={{ duration: 0.3 }}
+              className="h-0.5 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mt-3"
             />
           </div>
 
@@ -102,23 +122,6 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
                 'radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
-          />
-        </motion.div>
-
-        <motion.div
-          className="mt-6 text-center"
-          style={{
-            transform: 'translateZ(30px)',
-          }}
-        >
-          <h3 className="text-lg font-semibold text-white tracking-wide group-hover:text-gray-200 transition-colors duration-300">
-            {title}
-          </h3>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: isHovered ? '60%' : 0 }}
-            transition={{ duration: 0.3 }}
-            className="h-0.5 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mt-2"
           />
         </motion.div>
       </motion.div>

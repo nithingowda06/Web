@@ -24,7 +24,7 @@ export default function Shop() {
           className="text-center"
         >
           <img 
-            src="/IMG_1628.png" 
+            src="/assets/images/logo.png" 
             alt="Logo" 
             className="mx-auto h-32 w-auto"
             style={{ maxHeight: '128px' }}
