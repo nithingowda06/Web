@@ -26,7 +26,7 @@ export default function Shop() {
           <motion.img 
             src="/assets/images/logo.png" 
             alt="Logo" 
-            className="mx-auto h-36 sm:h-48 md:h-[216px] max-h-[216px] w-auto"
+            className="mx-auto h-[180px] sm:h-60 md:h-[270px] max-h-[270px] w-auto"
             animate={{
               y: [0, -6, 0],
               filter: [
