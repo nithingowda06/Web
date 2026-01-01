@@ -55,7 +55,7 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
       style={{
         transformStyle: 'preserve-3d',
         perspective: '1000px',
-        height: '400px',  // Fixed height for consistency
+        height: 'clamp(220px, 55vw, 300px)',  // Fixed height for consistency
       }}
     >
       <motion.div
@@ -71,29 +71,24 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
         className="h-full flex flex-col"  // Make container a flex column
       >
         <motion.div
-          animate={{
-            boxShadow: isHovered
-              ? '0 25px 50px -12px rgba(255, 255, 255, 0.25), 0 0 30px rgba(255, 255, 255, 0.1)'
-              : '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
-          }}
-          transition={{ duration: 0.3 }}
-          className="relative bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-lg rounded-3xl overflow-hidden border border-white/10 flex-1 flex flex-col"  // Add flex-1 and flex-col
+          className="relative flex-1 flex flex-col"
           style={{
             transform: 'translateZ(20px)',
+            border: 'none', // Remove border
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Image container with flex-1 to take available space */}
-          <div className="flex-1 flex items-center justify-center p-6">
+          <div className="flex-1 flex items-center justify-center p-2 sm:p-6">
             <motion.img
               src={image}
               alt={title}
               className="object-contain"
               style={{
                 transform: 'translateZ(40px)',
-                maxHeight: '220px',
-                maxWidth: '220px',
+                maxHeight: '160px',
+                maxWidth: '160px',
                 width: 'auto',
                 height: 'auto'
               }}
@@ -103,8 +98,8 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
           </div>
 
           {/* Title section at the bottom */}
-          <div className="p-6 pt-0 text-center">
-            <h3 className="text-lg font-semibold text-white group-hover:text-gray-200 transition-colors duration-300">
+          <div className="p-3 pt-0 sm:p-6 sm:pt-0 text-center">
+            <h3 className="text-base sm:text-lg font-semibold text-white group-hover:text-gray-200 transition-colors duration-300">
               {title}
             </h3>
             <motion.div

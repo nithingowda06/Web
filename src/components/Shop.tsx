@@ -14,7 +14,7 @@ export default function Shop() {
   const y = useTransform(scrollYProgress, [0, 0.2], [100, 0]);
 
   return (
-    <div ref={containerRef} className="min-h-screen pb-20 px-6">
+    <div ref={containerRef} className="min-h-screen pb-20 px-4 sm:px-6">
       {/* Logo Section */}
       <div className="flex justify-center items-center pt-16 mb-8">
         <motion.div
@@ -23,11 +23,23 @@ export default function Shop() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center"
         >
-          <img 
+          <motion.img 
             src="/assets/images/logo.png" 
             alt="Logo" 
-            className="mx-auto h-32 w-auto"
-            style={{ maxHeight: '128px' }}
+            className="mx-auto h-20 sm:h-28 md:h-32 max-h-32 w-auto"
+            animate={{
+              y: [0, -6, 0],
+              filter: [
+                'drop-shadow(0 0 0 rgba(255,255,255,0))',
+                'drop-shadow(0 10px 24px rgba(255,255,255,0.18))',
+                'drop-shadow(0 0 0 rgba(255,255,255,0))',
+              ],
+            }}
+            transition={{
+              duration: 3.2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
           />
         </motion.div>
       </div>
@@ -42,7 +54,7 @@ export default function Shop() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mb-16"
         >
-          <h1 className="text-6xl font-bold text-white mb-4 tracking-tight">
+          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
             Premium Collection
           </h1>
           <motion.div
@@ -51,12 +63,12 @@ export default function Shop() {
             transition={{ duration: 1, delay: 0.5 }}
             className="h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto"
           />
-          <p className="text-gray-400 mt-6 text-lg tracking-wide">
+          <p className="text-gray-400 mt-4 sm:mt-6 text-base sm:text-lg tracking-wide">
             Discover curated products for modern living
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 lg:gap-12">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
