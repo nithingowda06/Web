@@ -1,8 +1,9 @@
-import { ShoppingBag } from 'lucide-react';
+import { Instagram, ShoppingBag } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Navigation() {
-  const menuItems = ['Home', 'Shop Now'];
+  const instagramUrl =
+    'https://www.instagram.com/accounts/login/?next=%2Fmurli_footprints%2F&source=omni_redirect';
 
   return (
     <motion.nav
@@ -20,27 +21,85 @@ export default function Navigation() {
           <span className="text-xl font-bold text-white tracking-tight">SHOP</span>
         </motion.div>
 
-        <ul className="flex items-center gap-8">
-          {menuItems.map((item, index) => (
-            <motion.li
-              key={item}
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1 * index, duration: 0.5 }}
+        <div className="flex items-center gap-8">
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="relative inline-flex items-center justify-center w-10 h-10"
             >
-              <a
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className={`text-sm font-medium tracking-wide transition-all duration-300 hover:text-white ${
-                  item === 'Shop Now'
-                    ? 'text-white border-b-2 border-white pb-1'
-                    : 'text-gray-400 hover:border-b-2 hover:border-gray-400 pb-1'
-                }`}
+              <motion.span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full blur-md opacity-80"
+                style={{
+                  background:
+                    'linear-gradient(135deg, rgba(236,72,153,0.7) 0%, rgba(168,85,247,0.7) 50%, rgba(34,211,238,0.7) 100%)',
+                }}
+                animate={{
+                  opacity: [0.55, 0.9, 0.55],
+                  scale: [0.95, 1.08, 0.95],
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+              <motion.span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-full opacity-40"
+                style={{
+                  background:
+                    'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 55%)',
+                }}
+                animate={{ opacity: [0.2, 0.45, 0.2] }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+              <motion.span
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative rounded-full p-2"
+                animate={{
+                  filter: [
+                    'drop-shadow(0 0 0 rgba(0,0,0,0))',
+                    'drop-shadow(0 0 18px rgba(236,72,153,0.55)) drop-shadow(0 0 28px rgba(168,85,247,0.45))',
+                    'drop-shadow(0 0 0 rgba(0,0,0,0))',
+                  ],
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
               >
-                {item}
-              </a>
-            </motion.li>
-          ))}
-        </ul>
+                <Instagram className="w-5 h-5 text-white" />
+              </motion.span>
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <a
+              href="#shop-now"
+              className="text-sm font-medium tracking-wide transition-all duration-300 hover:text-white text-white border-b-2 border-white pb-1"
+            >
+              Shop Now
+            </a>
+          </motion.div>
+        </div>
       </div>
     </motion.nav>
   );
