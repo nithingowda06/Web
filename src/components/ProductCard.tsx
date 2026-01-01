@@ -55,7 +55,7 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
       style={{
         transformStyle: 'preserve-3d',
         perspective: '1000px',
-        height: 'clamp(220px, 55vw, 300px)',  // Fixed height for consistency
+        height: 'clamp(200px, 50vw, 280px)',  // Fixed height for consistency
       }}
     >
       <motion.div
@@ -87,8 +87,8 @@ export default function ProductCard({ image, title, amazonLink }: ProductCardPro
               className="object-contain"
               style={{
                 transform: 'translateZ(40px)',
-                maxHeight: '160px',
-                maxWidth: '160px',
+                maxHeight: '140px',
+                maxWidth: '140px',
                 width: 'auto',
                 height: 'auto'
               }}

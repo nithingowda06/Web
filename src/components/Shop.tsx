@@ -26,7 +26,7 @@ export default function Shop() {
           <motion.img 
             src="/assets/images/logo.png" 
             alt="Logo" 
-            className="mx-auto h-20 sm:h-28 md:h-32 max-h-32 w-auto"
+            className="mx-auto h-24 sm:h-32 md:h-36 max-h-36 w-auto"
             animate={{
               y: [0, -6, 0],
               filter: [
@@ -54,7 +54,7 @@ export default function Shop() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mb-16"
         >
-          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight whitespace-nowrap">
             Premium Collection
           </h1>
           <motion.div
@@ -68,7 +68,7 @@ export default function Shop() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-10 lg:gap-12">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
