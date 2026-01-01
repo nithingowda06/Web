@@ -11,5 +11,11 @@ export const products: Product[] = [
     image: '/assets/images/products/tap.jpg',
     title: 'Kitchen Tap Spray Extender',
     amazonLink: 'https://amzn.in/d/7dIj95p',
+  },
+  {
+    id: 2,
+    image: '/assets/images/products/bag.webp',
+    title: 'Kamron IronShell',
+    amazonLink: 'https://kamron.in/products/kamron-tough-bp-hard',
   }
 ];
