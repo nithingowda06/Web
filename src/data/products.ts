@@ -55,5 +55,11 @@ export const products: Product[] = [
     image: '/assets/images/products/fruit_plucker.png',
     title: 'Fruit Plucker Net',
     amazonLink: 'https://amzn.in/d/07t0U9wh',
+  },
+  {
+    id: 9,
+    image: '/assets/images/products/spress.jpg',
+    title: 'PDN Double Spray Nozzle',
+    amazonLink: 'https://www.amazon.in/Adjustable-Coverage-Pressure-Compatible-Agriculture/dp/B0H1J6J8D8',
   }
 ];
